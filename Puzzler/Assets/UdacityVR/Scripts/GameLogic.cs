@@ -16,4 +16,13 @@ public class GameLogic : MonoBehaviour
 	{
 		// Will be completed later in the course.
 	}
+
+	public void DelayedGaze() {
+		StartCoroutine ("delayInput");
+	}
+
+	IEnumerator delayInput() {
+		yield return new WaitForSeconds (1);
+		ToggleUI ();
+	}
 }
