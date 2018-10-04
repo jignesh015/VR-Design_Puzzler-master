@@ -9,14 +9,33 @@ public class LightUp : MonoBehaviour
 	// The material used to light up the orb.
 	public Material lightUpMaterial;
 
+	//The material used when orb is selected;
+	public Material activeMaterial;
+
 	// The gameobject that has the GameLogic.cs script attached.
 	public GameLogic gameLogic;
 
+	//Variable for storing Pointer enter time
+	private float pointerEnterTime;
+
+	//Variable for storing Pointer Enter/Exit flag
+	private bool pointerFlag;
 
 	void Start()
 	{
 		// Assign the initial material of the orb as the default material.
 		defaultMaterial = this.GetComponent<MeshRenderer>().material;
+	}
+
+	void Update() {
+		//For Toggling Pointer Enter/Exit
+		if(pointerFlag) {
+			if ((Time.time - pointerEnterTime) > 2f) {
+				pointerFlag = false;
+				PlayerSelection ();
+
+			}
+		}
 	}
 		
 	// Called when the orb is clicked.
@@ -30,6 +49,9 @@ public class LightUp : MonoBehaviour
 		// Get the GVR audio source component on this orb and play the audio.
 		/* Uncomment the line below during 'A Little More Feedback!' lesson.*/
 		this.GetComponent<GvrAudioSource>().Play();
+
+		// Assign the active material to the orb.
+		this.GetComponent<MeshRenderer>().material = activeMaterial;
 	}
 
 	// Called when the reticle moves over the orb.
@@ -38,6 +60,8 @@ public class LightUp : MonoBehaviour
 	{
 		// Assign the lightup material to the orb.
 		this.GetComponent<MeshRenderer>().material = lightUpMaterial;
+		pointerEnterTime = Time.time;
+		pointerFlag = true;
 	}
 
 	// Called when the reticle is moved away from orb.
@@ -46,6 +70,7 @@ public class LightUp : MonoBehaviour
 	{
 		// Revert to the orb's default material.
 		this.GetComponent<MeshRenderer>().material = defaultMaterial; 
+		pointerFlag = false;
 	}
 
 	// Lightup behavior for displaying the orb lightup pattern.

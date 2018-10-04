@@ -31,6 +31,18 @@ public class GameLogic : MonoBehaviour
 
 	public GameObject successAudioHolder;
 
+	//Variable for storing Pointer enter time for Start UI
+	private float startPointerEnter;
+
+	//Variable for toggling Pointer Enter/Exit flag value for Start UI
+	private bool startPointerFlag = false;
+
+	//Variable for storing Pointer enter time for Restart UI
+	private float restartPointerEnter;
+
+	//Variable for toggling Pointer Enter/Exit flag value for Restart UI
+	private bool restartPointerFlag = false;
+
 	void Start()
 	{
 		// Update 'player' to be the camera's parent gameobject, i.e. 'GvrEditorEmulator' instead of the camera itself.
@@ -45,6 +57,24 @@ public class GameLogic : MonoBehaviour
 
 		// Create a random puzzle sequence.
 		GeneratePuzzleSequence();
+	}
+
+	void Update() {
+		//For toggling Pointer Enter/Exit for Start UI
+		if(startPointerFlag) {
+			if ((Time.time - startPointerEnter) > 2f) {
+				startPointerFlag = false;
+				StartPuzzle ();
+			}
+		}
+
+		//For toggling Pointer Enter/Exit for Restart UI
+		if(restartPointerFlag) {
+			if ((Time.time - restartPointerEnter) > 2f) {
+				restartPointerFlag = false;
+				ResetPuzzle ();
+			}
+		}
 	}
 
 	// Create a random puzzle sequence.
@@ -217,5 +247,23 @@ public class GameLogic : MonoBehaviour
 
 		// Begin the puzzle sequence.
 		StartPuzzle();
+	}
+
+	public void StartPointerEnter() {
+		startPointerEnter = Time.time;
+		startPointerFlag = true;
+	}
+
+	public void StartPointerExit() {
+		startPointerFlag = false;
+	}
+
+	public void RestartPointerEnter() {
+		restartPointerEnter = Time.time;
+		restartPointerFlag = true;
+	}
+
+	public void RestartPointerExit() {
+		restartPointerFlag = false;
 	}
 }
