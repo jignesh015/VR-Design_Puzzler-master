@@ -6,8 +6,29 @@ Unity LTS Release 2017.4.4(https://unity3d.com/unity/qa/lts-releases?version=201
 GVR SDK for Unity v1.100.1(https://github.com/googlevr/gvr-unity-sdk/releases/tag/v1.100.1)
 iTween(https://assetstore.unity.com/packages/tools/animation/itween-84) v2.0.9
 
-The final gameplay as of the latest version looks like this:
-<div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://www.youtube.com/embed/yiCHABgvI6Q?ecver=2" width="640" height="360" frameborder="0" allow="autoplay; encrypted-media" style="position:absolute;width:100%;height:100%;left:0" allowfullscreen></iframe></div>
+The Puzzler game is set in a mystical environment where the user has to go through a creepy looking dungeon, finish the puzzle and get to the other side. The final gameplay as of the latest version looks like this:
+
+
+
 
 
 ---
+
+The Process
+Statement of Purpose: Puzzler is a mobile VR application for new VR users which challenges them to solve a familiar type of puzzle in a new way.
+Persona: I developed this project keeping in mind the end users as my colleagues who, like me, are new to VR experience.
+Persona describing an intended end userEarly Sketches: I made a few rough sketches of how my game screens should look using MS paint. It gave me a quick referential guidance while developing the actual screens. 
+Start UI screenRestart UI screenGame screenEarly Development: After adding the basics functionality of the game, I decided to get the the app user tested. The screenshots below display the initial version of the very early version of the app.
+User Test: I got a colleague of mine to try out the app and give honest feedback. This was her very first VR experience and she was no doubt flummoxed initially while trying out the VR headset. But as she got the hang of it, she could navigate easily through the game and gave quite a few helpful suggestions. 
+First suggestion was to add some fire animation to the lamps hanging on the wall. Also, as per her opinion, the red light flashing on the orbs looked a bit dull. Her last suggestion was to add some scenery in the background as it looked quite empty.
+Based on the feedback, I made the appropriate changes to the app, adding fire to the lamp, and replacing the spotlight shining on the orbs. Though I am yet to add background sky map to the current version of the app as I couldn't find any suitable asset for the same. But in subsequent version, this would be fixed.
+This is how the game looks like after the aforementioned changes:
+Changed spotlight color. Also added fireflies for aesthetic purpose.Added fire to the lamps. Also made the light look more like emitted from the fire.After deploying the changes, I made her test the app again, which she thought looked and felt better this time. She said the controls where easy enough to understand and she was able to complete the game after a few initial tries.
+
+
+---
+
+Breakdown of the final piece
+After all the user feedback, iterations and deployment, this is how the current version of the app stands:
+As the user launches the app, they face a UI screen telling them to click the START button to enter the game. 
+On clicking the button they are taken into the eerie looking dungeon where they face
